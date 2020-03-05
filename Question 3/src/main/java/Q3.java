@@ -16,6 +16,7 @@ public class Q3 extends Application {
     public void start(Stage primaryStage) throws Exception {
         //Setting up the pane, circles for the points and main one
         Pane pane = new Pane();
+        primaryStage.setTitle("Question 3");
         Circle main = new Circle(200,200,100);
         main.setFill(Color.TRANSPARENT);
         main.setStroke(Color.BLACK);
@@ -75,7 +76,8 @@ public class Q3 extends Application {
      * @return   Double, the degree of calculated angle
      */
     public double angle(Double a, Double b, Double c){
-      return Math.toDegrees(Math.acos(((a*a) - ((b*b) + (c*c)))/(-2*c*b)));
+      //Rounds to two decimal places
+      return (double) Math.round((Math.toDegrees(Math.acos(((a*a) - ((b*b) + (c*c)))/(-2*c*b))))*100)/100;
     }
     /**
      * Forms a Triangle based on the points

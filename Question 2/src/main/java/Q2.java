@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import java.lang.Math;
+import java.lang.NumberFormatException;
 
 
 public class Q2 extends Application {
@@ -52,11 +53,18 @@ public class Q2 extends Application {
         //in order to calculate the future value
         btAdd.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
+              try{
               double in = Double.parseDouble(invest.getText());
               double ye = Double.parseDouble(years.getText());
               double ra = Double.parseDouble(rate.getText())/100;
               result.setText(String.valueOf(in*Math.pow((1+ra/12),(ye*12))));
-
+              }
+              catch(NumberFormatException q){
+                invest.clear();
+                years.clear();
+                rate.clear();
+                result.setText("Try entering numbers");
+              }
             }
         });
     }

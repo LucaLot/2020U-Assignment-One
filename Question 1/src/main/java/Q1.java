@@ -1,6 +1,5 @@
-//Chanuka Goonetilleke, Luca Lotito | March 1st 2020 | A program which randomly selects three cards to display on each runtime, using FXML as a display base
+//Chanuka Goonetilleke, Luca Lotito | March 1st 2020 | A program which randomly selects three cards to display on each runtime
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,22 +15,18 @@ public class Q1 extends Application {
     //Sets up the random number generator, in order to select cards
     @Override
     public void start(Stage stage) throws Exception {
-	//Sets up the main page and FXML in order to display the panel
-        Parent root = FXMLLoader.load(getClass().getResource("/sample.fxml"));
+        //Sets up the pane with an Hbox as a base
         stage.setTitle("Question 1");
-        stage.setScene(new Scene(root, 300, 275));
-        stage.show();
-	
+        Pane pane = new HBox(10);
+        pane.setPadding(new Insets(5,5,5,5));
+
         //Selects the random numbers for the program, between 1 and 54
         Random rand = new Random();
         int[] r = new int[3];
         for(int i=0;i<3;i++) {
           r[i] = rand.nextInt(54)+1; //Selects the random number, and places it in an array
         }
-	
-        Pane pane = new HBox(10);
-        pane.setPadding(new Insets(5,5,5,5));
-	
+
         //Sets up the image views with every card
         Image image1 = new Image("Cards/"+r[0]+".png");
         ImageView imageView1 = new ImageView();

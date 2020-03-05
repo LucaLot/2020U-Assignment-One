@@ -1,8 +1,7 @@
-//Luca Lotito, Chanuka Goonetilleke | March 4th 2020 | A program which takes the
+//Chanuka Goonetilleke, Luca Lotito | March 4th 2020 | A program which takes the
 //input of a file path, creates a histrograph of the numbe rof times all letters appear
 import javafx.application.Application;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
@@ -17,6 +16,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+import java.lang.NullPointerException;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
@@ -25,25 +25,19 @@ public class Q4 extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        //create text field
+        //create text field and sets up required stage
         TextField textField = new TextField();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/sample.fxml"));//Calls the fxml file
-        Parent root = loader.load();
         stage.setTitle("Question 4");
-        stage.setScene(new Scene(root, 500, 500));
-        stage.show();
-
         StackPane pane = new StackPane();
 
         BorderPane borderPane = new BorderPane();
 
-        //create label and put the label and the text feild in the bottom of the screen
+        //create label and put the label and the text field in the bottom of the screen
         BorderPane bottom = new BorderPane();
         bottom.setLeft(new Label("Filename:   "));
         bottom.setCenter(textField);
         borderPane.setBottom(bottom);
-
+        borderPane.setCenter(pane);
         Scene scene = new Scene(borderPane);
         stage.setScene(scene);
         stage.setWidth(500);
@@ -58,8 +52,6 @@ public class Q4 extends Application {
             {
                 if (ke.getCode().equals(KeyCode.ENTER))
                 {
-                    //close the previous stage
-                    stage.close();
 
                     //create file
                     java.io.File file = new java.io.File(textField.getText());
@@ -70,9 +62,9 @@ public class Q4 extends Application {
                     try {
                         input = new Scanner(file);
                     } catch (FileNotFoundException e) {
-                        e.printStackTrace();
+                        textField.setText("Improper File Address! Enter a different file name");
                     }
-
+                    if(input!=null){
                     //take input from scanner and store it in 'str'
                     while (input.hasNext()){
                         str += input.next();
@@ -146,11 +138,7 @@ public class Q4 extends Application {
                     barChart.getData().addAll(series1);
 
                     pane.getChildren().addAll(barChart);
-
-                    Scene scene = new Scene(pane,500,500);
-
-                    stage.setScene(scene);
-                    stage.show();
+                  }
                 }
             }
         });
