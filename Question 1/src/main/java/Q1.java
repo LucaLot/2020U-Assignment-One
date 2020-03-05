@@ -1,4 +1,4 @@
-//Luca Lotito | March 1st 2020 | A program which randomly selects three cards to display
+//Luca Lotito, Chanuka Goonetilleke | March 1st 2020 | A program which randomly selects three cards to display
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;

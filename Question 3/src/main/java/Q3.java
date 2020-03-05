@@ -1,4 +1,4 @@
-//Luca Lotito | March 1st 2020 | A program which displays a circle and three points,
+//Luca Lotito, Chanuka Goonetilleke | March 1st 2020 | A program which displays a circle and three points,
 //allowing for dynamic movement of the points on the circle
 import javafx.application.Application;
 import javafx.scene.Scene;

@@ -1,4 +1,4 @@
-//Luca Lotito | March 1st 2020 | A program which through values inserted
+//Luca Lotito, Chanuka Goonetilleke | March 1st 2020 | A program which through values inserted
 //into text boxes, calculates the future value of an investment
 import javafx.application.Application;
 import javafx.geometry.HPos;
