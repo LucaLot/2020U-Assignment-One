@@ -25,6 +25,11 @@ public class Q1 extends Application {
         int[] r = new int[3];
         for(int i=0;i<3;i++) {
           r[i] = rand.nextInt(54)+1; //Selects the random number, and places it in an array
+          for(int j=0;j<i;j++){
+            while(r[i]==r[j]){  //Confirms that the cards are unique
+              r[j] = rand.nextInt(54)+1;
+            }
+          }
         }
 
         //Sets up the image views with every card
